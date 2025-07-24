@@ -37,7 +37,7 @@ fn main() -> anyhow::Result<()> {
     let config = Arc::new(RwLock::new(toml::from_str::<Config>(
         std::fs::read_to_string(&config_path)
             .as_deref()
-            .unwrap_or(""),
+            .unwrap_or("Couldn't read the config file"),
     )?));
 
     let thread_config = Arc::clone(&config);
